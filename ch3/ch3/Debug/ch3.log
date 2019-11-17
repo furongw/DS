@@ -1,0 +1,3 @@
+﻿  coin.cpp
+C:\Users\付蓉\source\repos\ch3\ch3\coin.cpp(23): warning C4715: “findcoin2”: 不是所有的控件路径都返回值
+  ch3.vcxproj -> C:\Users\付蓉\source\repos\ch3\Debug\ch3.exe
