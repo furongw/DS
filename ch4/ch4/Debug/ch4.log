@@ -1,4 +1,4 @@
 ﻿  main2.cpp
-C:\Users\付蓉\source\repos\ch4\ch4\main2.cpp(21,41): warning C4838: 从“double”转换到“Datatype”需要收缩转换
-C:\Users\付蓉\source\repos\ch4\ch4\main2.cpp(21,41): warning C4244: “初始化”: 从“double”转换到“Datatype”，可能丢失数据
-  ch4.vcxproj -> C:\Users\付蓉\source\repos\ch4\Debug\ch4.exe
+C:\Users\付蓉\source\repos\DS\ch4\ch4\main2.cpp(21,40): warning C4838: 从“double”转换到“Datatype”需要收缩转换
+C:\Users\付蓉\source\repos\DS\ch4\ch4\main2.cpp(21,40): warning C4244: “初始化”: 从“double”转换到“Datatype”，可能丢失数据
+  ch4.vcxproj -> C:\Users\付蓉\source\repos\DS\ch4\Debug\ch4.exe

@@ -16,7 +16,7 @@ BiTree Insert(Datatype x, BiTree &bst)
 {
 	if (!bst)  //若原树为空，生成并返回一个结点的二叉搜索树
 	{
-		bst = (BiTree)malloc(sizeof(BiTree));
+		bst = (BiTree)malloc(sizeof(BiTreeNode));
 		bst->data = x;
 		bst->lchild = NULL;
 		bst->rchild = NULL;
@@ -101,50 +101,75 @@ int SearchBST(BiTree bt, int key, BiTree* p, BiTree* q)
 		*q = *p;
 		return 0;
 	}
-
-}
-
-/*二叉排序树结点的删除*/
-void Delete(BiTree& p)
-{
-	if (!p->rchild)  //只有左子树
+	else if (key == bt->data)  //查找成功
 	{
-
+		*q = bt;
+		return 1;
 	}
-	else if (!p->lchild)  //只有右子树
+	else if (key < bt->data)  //在左子树继续查找
 	{
-
-	}
-	else  //左右子树均有
-	{
-
-	}
-}
-
-int DeleteBST(BiTree* T, Datatype key)
-{
-	BiTree bst;
-	bst = *T;
-	//若二叉排序树T中存在其关键字等于key的数据元素，则删除该数据元素结点，并返回true，否则返回false
-	if (!T)
-	{
-		return false;  //不存在关键字等于key的数据元素
+		*p = bt;
+		return SearchBST(bt->lchild, key, p, q);
 	}
 	else
 	{
-		if (key == bst->data)  //找到关键字等于key的数据元素
+		*p = bt;
+		return SearchBST(bt->rchild, key, p, q);
+	}
+}
+
+/*二叉排序树结点的删除*/
+int DeleteBiTreeNode(BiTree* t, int key)
+{
+	BiTree p, f, s, q;
+	if (SearchBST(*t, key, &f, &p) == 0)  //查找失败
+	{
+		return 0;
+	}
+
+	if (!(p->rchild))  //叶结点或只有左子树
+	{
+		if (f->lchild && f->lchild == p)
 		{
-			Delete(bst);
-			return true;
-		}
-		else if (key < bst->data)
-		{
-			DeleteBST(&bst->lchild, key);  //继续在左子树中查找
+			f->lchild = p->lchild;
 		}
 		else
 		{
-			DeleteBST(&bst->rchild, key);  //继续在右子树中查找
+			f->rchild = p->lchild;
 		}
 	}
+	else if(!(p->lchild))  //只有右子树
+	{
+		if (f->lchild && f->lchild == p)
+		{
+			f->lchild = p->rchild;
+		}
+		else
+		{
+			f->rchild = p->rchild;
+		}
+	}
+	else  //左右子树均有
+	{
+		q = p;
+		s = p->lchild;
+		while (s->rchild)
+		{
+			q = s;
+			s = s->rchild;
+		}
+		p->data = s->data;
+		if (q != p)
+		{
+			q->rchild = s->lchild;
+		}
+		else
+		{
+			q->lchild = s->lchild;
+		}
+	}
+	return 1;
 }
+
+
 #endif // BINSORTREE

@@ -18,8 +18,8 @@ void initbst(BiTree &p, Datatype data[],int n)
 
 int main()
 {
-	Datatype num[NUMSIZE] = { 1,3,2,4,8,7,-1.20,28,9};
-	BiTree BST ;
+	Datatype num[NUMSIZE] = { 1,3,2,4,8,7,0.20,28,9};
+	BiTree BST,p,q ;
 	
 	//½¨Á¢¶þ²æËÑË÷Ê÷
 	initbst(BST, num,NUMSIZE);
@@ -32,7 +32,7 @@ int main()
 
 	//²âÊÔ¶þ²æËÑË÷Ê÷Ñ°ÕÒËã·¨
 	//if (Find(-2, BST))
-	if(IterFind(7,BST))
+	/*if(IterFind(7,BST))
 	{
 		printf("\nsuccess!\n");
 	}
@@ -40,5 +40,18 @@ int main()
 	{
 		printf("\n404\n");
 	}
-	printf("the max is: %d", Findmax(BST)->data);
+	printf("the max is: %d", Findmax(BST)->data);*/
+	if (SearchBST(BST, 9, &p, &q))
+	{
+		printf("\nsuccess!\n");
+	}
+	else
+	{
+		printf("\n404\n");
+	}
+	
+	DeleteBiTreeNode(&BST, 28);
+	printf("\ninorder:\n");
+	InOrder(BST);
+	
 }
