@@ -153,19 +153,21 @@ int DeleteBiTreeNode(BiTree* t, int key)
 	{
 		q = p;
 		s = p->lchild;
-		while (s->rchild)
+		while (s->rchild)  //找到左子树的最大值，s指向该最大值，q指向最大值的父亲
 		{
 			q = s;
 			s = s->rchild;
 		}
 		p->data = s->data;
-		if (q != p)
+		if (q != p)  //如果p的左子树有右子树
 		{
-			q->rchild = s->lchild;
+			q->rchild = s->lchild;  //把最大数的左子树接到最大数的父亲
+			free(s);
 		}
-		else
+		else  //p的左子树没有右子树
 		{
-			q->lchild = s->lchild;
+			q->lchild = s->lchild;  //实际上s为p的左子树的根节点，q = p，把s的左子树接过来
+			free(s);
 		}
 	}
 	return 1;

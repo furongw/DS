@@ -1,4 +1,3 @@
-﻿  main2.cpp
-C:\Users\付蓉\source\repos\DS\ch4\ch4\main2.cpp(21,40): warning C4838: 从“double”转换到“Datatype”需要收缩转换
-C:\Users\付蓉\source\repos\DS\ch4\ch4\main2.cpp(21,40): warning C4244: “初始化”: 从“double”转换到“Datatype”，可能丢失数据
+﻿  main3.cpp
+C:\Users\付蓉\source\repos\DS\ch4\ch4\heapsort.h(23,27): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
   ch4.vcxproj -> C:\Users\付蓉\source\repos\DS\ch4\Debug\ch4.exe
