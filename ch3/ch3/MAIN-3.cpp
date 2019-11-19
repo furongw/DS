@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "../../Project2/Project2/algo_seqlist.h"
+#include "../../../Project2/Project2/algo_seqlist.h"
 
 
 //2½×³Ë

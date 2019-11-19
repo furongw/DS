@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Project2\Project2\algo_seqlist.h">
+    <ClInclude Include="..\..\..\Project2\Project2\algo_seqlist.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Project2\Project2\head.h">
+    <ClInclude Include="..\..\..\Project2\Project2\head.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
