@@ -50,13 +50,15 @@ int main()
 	LevelOrder(p);*/
 	
 	/*由先序遍历和中序遍历结果建立一棵二叉树*/
-	/*Datatype preord[] = { 1,2,3,4,5,6,7 };
-	Datatype inord[] = { 3,2,4,1,5,7,6 };
+	Datatype preord[] = { 1,2,3,4,5,6,7,8,9,10,11,12,13 };
+	Datatype inord[] = { 3,2,5,4,7,6,1,9,8,10,12,11,13 };
 	BiTreeNode rootnode;
 	BiTree root = &rootnode;
-	CreateBiTree(preord, inord, 7, &root);
+	CreateBiTree(preord, inord, 13, &root);
  	printf("\nLevelOrder:\n");
-	LevelOrder(root);*/
+	LevelOrder(root);
+	printf("\npostorder:\n");
+	PostOrder(root);
 	printf("\nthe number of leafnode is %d", BitreeLeaf(p));
 	printf("\nthe number of depth is %d", BitreeDepth(p));
 	printf("\nthe tree is complete binary tree ?: %d", LevelOrder3(p));

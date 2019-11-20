@@ -41,5 +41,14 @@
     <ClCompile Include="main4.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ex2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ex3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ex4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
