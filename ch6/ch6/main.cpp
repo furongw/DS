@@ -2,6 +2,8 @@
 
 #define MATRIXNUM 3
 #define NUMAX 10000
+#define CAPACITY 11  //背包容量
+#define ITEMNUM 5  //物品数量
 
 /*动态规划示例*/
 //求矩阵连乘问题，求最小的计算量
@@ -57,7 +59,6 @@ int lookupchain(int i,int j,int m[MATRIXNUM + 1][MATRIXNUM + 1], int s[MATRIXNUM
 			s[i][j] = k;
 		}
 		m[i][j] = u;
-		
 	}
 	return u;
 }
@@ -79,12 +80,44 @@ int memorizedmatrixchain(int n, int m[MATRIXNUM+1][MATRIXNUM+1],int s[MATRIXNUM 
 	}
 	return lookupchain(1, n , m, s, p);
 }
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
 
 
+/*01背包问题*/
+int knapsack(int v[ITEMNUM+1], int w[],int M[][CAPACITY+1])
+{
+	//v,w存储物品的价值和重量,从1开始存储
+	int i, j;
+	for (j = 0; j <=CAPACITY ; j++)
+	{
+		M[0][j] = 0;  //0个物体，初始化第0行
+	}
+	for (i = 1; i <= ITEMNUM; i++)
+	{
+		M[i][0] = 0;  //背包没有容量，初始化第一列
+	}
+	for (i = 1; i <= ITEMNUM; i++)
+	{
+		for (j = 1; j <= CAPACITY; j++)
+		{
+			if (w[i] > j)  //重量超过容量
+			{
+				M[i][j] = M[i - 1][j];
+			}
+			else
+				M[i][j] = max(M[i - 1][j], v[i] + M[i - 1][j - w[i]]);  //分成放入i和不放入i两种情况
+		}
+	}
+	return M[ITEMNUM][CAPACITY];
+}
 
 
 int main()
 {
+	/*
 	int i;
 	int p[MATRIXNUM+1] = {9, 3,2,4};  //相乘矩阵的行列数
 	printf("the min mul num is: %d", MatrixChainOrder(p));
@@ -92,4 +125,9 @@ int main()
 	
 	printf("\n");
 	printf("the min mul num is: %d", memorizedmatrixchain(MATRIXNUM,m,s,p));
+	*/
+	int v[ITEMNUM + 1] = { 0,1,6,18,22,28 };
+	int w[ITEMNUM + 1] = { 0,1,2,5,6,7 };
+	int M[ITEMNUM + 1][CAPACITY + 1];
+	printf("the maximum value is %d", knapsack(v, w, M));
 }
