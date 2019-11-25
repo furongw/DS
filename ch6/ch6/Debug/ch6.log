@@ -1,2 +1,4 @@
-﻿  main.cpp
+﻿  ex8.cpp
+C:\Users\付蓉\source\repos\DS\ch6\ch6\ex8.cpp(11,22): warning C4244: “return”: 从“double”转换到“int”，可能丢失数据
+C:\Users\付蓉\source\repos\DS\ch6\ch6\ex8.cpp(39): warning C4715: “trip”: 不是所有的控件路径都返回值
   ch6.vcxproj -> C:\Users\付蓉\source\repos\DS\ch6\Debug\ch6.exe
