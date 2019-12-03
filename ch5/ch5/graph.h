@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../../ch2/ch2/uniquearray.h"  //队列定义
+#include "../../ch1/ch1/all.h"
 #ifndef GRAPH
 #define GRAPH
 
@@ -107,12 +108,128 @@ void initialize_search(graph* g)
 	}
 }
 
-//广度优先搜索
-void bfs(graph* g, int start)
+//顶点处理函数，自定义
+void process_vertex_early(int vertex)  
 {
-	Queue q;
+	printf("\nprocessing...");
+	printf("vertex %d\n", vertex);
+}
+
+//边处理函数，自定义
+void process_edge(int x, int y)
+{
+	printf("\n%d-->%d\n", x, y);
+}
+
+//顶点处理后函数
+void process_vertex_late(int v)
+{
+	printf("\nvertex %d has been processed\n", v);
+}
+
+//广度优先搜索
+void bfs(graph* g, int v)
+{
+	QueuePtr q;
 	int x, y;
 	edgenode* p;
-	
+	Queue_Init(&q);  //初始化一个队列
+	Queue_EnQueue(q, v);  //起始点入队
+	discovered[v] = true;  //将起始点加入已发现列表
+
+	while (Queue_Empty(q) == false)  //队列不空
+	{
+		Queue_DeQueue(q, &v);  //取队首元素
+		process_vertex_early(v);  //进入顶点时处理函数
+		processed[v] = true;  //标记点v已处理
+		p = g->edge[v];  //取v的第一个邻接点
+		while (p != NULL)
+		{
+			y = p->y;
+			if (processed[y] == false)
+			{
+				process_edge(v, y);
+			}
+			if (discovered[y] == false)  //如果y未被发现
+			{
+				//入队，修改发现情况
+				Queue_EnQueue(q, y);  
+				discovered[y] = true;
+				parent[y] = v;
+			}
+			p = p->next;  //取v的下一个邻接点
+		}
+		process_vertex_late(v);
+	}
+}
+
+/*深度优先搜索*/
+//简洁版
+void dfs_simple(graph* g, int v)
+{
+	edgenode* p;
+	int y;
+	discovered[v] = true;
+	process_vertex_early(v);  //开始处理v
+	p = g->edge[v];
+	while (p != NULL)
+	{
+		y = p->y;
+		if (discovered[y] == false)
+		{
+			dfs_simple(g, y);
+		}
+		p = p->next;
+	}
+	process_vertex_late(v);  //处理完v以及其子图
+}
+
+//增强版
+//引入两个数组，记录结点的进入时间和离开时间
+int entry_time[max + 1] = { 0 };
+int exit_time[max + 1] = { 0 };
+void dfs_complex(graph* g, int v)
+{
+	int time = 0;
+	edgenode* p;
+	int y;
+	time++;
+	discovered[v] = true;
+	entry_time[v] = time;
+	process_vertex_early(v);
+	p = g->edge[v];
+	while (p != NULL)
+	{
+		y = p->y;
+		if (discovered[y] == false)  //如果没有发现y
+		{
+			parent[y] = v;
+			process_edge(v, y);
+			dfs_complex(g, y);
+		}
+		else if (!processed[y])  //如果y未处理完
+		{
+			process_edge(v, y);
+		}
+		p = p->next;
+	}
+	process_vertex_late(v);
+	time++;
+	exit_time[v] = time;
+	processed[v] = true;
+}
+
+//一个遍历所有连通分支的方法
+void travergraph(graph* g)
+{
+	int i;
+	initialize_search(g);
+	for (i = 1; i <= g->nvertices; i++)
+	{
+		if (discovered[i] == false)
+		{
+			dfs_complex(g, i);
+		}
+	}
 }
 #endif // !GRAPH

@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sqlist.h" />
     <ClInclude Include="uniquearray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

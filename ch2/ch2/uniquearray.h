@@ -28,6 +28,43 @@ Status Queue_Init(QueuePtr* q)
 	return outcome;
 }
 
+//循环队列的判空
+bool Queue_Empty(QueuePtr q)
+{
+	return q->front == q->rear;  //两个指针相等
+}
+
+//循环队列的判满
+bool Queue_Full(QueuePtr q)
+{
+	return ((q->rear + 1) % MAXQUEUE == q->front);
+}
+
+//入队
+Status Queue_EnQueue(QueuePtr q, DataType item)
+{
+	Status outcome = overflow;
+	if (!Queue_Full(q))
+	{
+		q->rear = (q->rear + 1) % MAXQUEUE;
+		q->entry[q->rear] = item;
+		outcome = success;
+	}
+	return outcome;
+}
+
+//循环队列的出队
+Status Queue_DeQueue(QueuePtr q, DataType* item)
+{
+	Status outcome = underflow;
+	if (!Queue_Empty(q))
+	{
+		q->front = (q->front + 1) % MAXQUEUE;
+		*item = q->entry[q->front];
+		outcome = success;
+	}
+	return outcome;
+}
 
 
 
