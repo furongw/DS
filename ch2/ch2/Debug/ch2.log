@@ -1,2 +1,3 @@
 ﻿  main2.cpp
+C:\Users\付蓉\source\repos\DS\ch2\ch2\sqlist.h(102): warning C4715: “List_Remove”: 不是所有的控件路径都返回值
   ch2.vcxproj -> C:\Users\付蓉\source\repos\DS\ch2\Debug\ch2.exe

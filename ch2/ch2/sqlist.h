@@ -71,7 +71,7 @@ Status List_Insert(ListPtr L, int pos, Datatype elem)
 	}
 	else if (1 <= pos && pos <= len + 1)
 	{
-		for (i = len; i = pos; i--)
+		for (i = len; i >= pos; i--)
 		{
 			L->elem[i + 1] = L->elem[i];  //数据元素后移一个位置
 		}
@@ -82,4 +82,22 @@ Status List_Insert(ListPtr L, int pos, Datatype elem)
 	return status;
 }
 
+//顺序表删除操作
+Status List_Remove(ListPtr L, int pos)
+{
+	Status status = range_error;
+	int len = L->lenth;
+	int i;
+	if (1 <= pos && pos <= len)  //检查删除位置是否合法
+	{
+		//检查通过，数据元素依次向前移动一个位置
+		for (i = pos; i < len; i++)
+		{
+			L->elem[i] = L->elem[i + 1];  
+			L->lenth--;  //表长减1
+			status = success;
+		}
+		return success;
+	}
+}
 #endif // !SQLIST
