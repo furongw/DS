@@ -21,6 +21,9 @@
     <ClInclude Include="sqlist.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main2.cpp">
