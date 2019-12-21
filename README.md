@@ -29,5 +29,5 @@
 
 # 各章知识点梳理
 
-![线性结构](https://github.com/furongw/DS/线性结构.jpg)
+![线性结构](https://github.com/furongw/DS/raw/master/image/线性结构.jpg)
 
