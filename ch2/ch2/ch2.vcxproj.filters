@@ -24,9 +24,27 @@
     <ClInclude Include="ListNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="search.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="insertsort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
