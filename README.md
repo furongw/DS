@@ -36,3 +36,8 @@
 第三章：
 
 ![第三章](https://github.com/furongw/DS/raw/master/image/递归与分治.jpg)
+
+第四章：
+
+![第四章](https://github.com/furongw/DS/raw/master/image/二叉树.jpg)
+
