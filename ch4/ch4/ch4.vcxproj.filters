@@ -27,6 +27,9 @@
     <ClInclude Include="huffman.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="selectionsort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main2.cpp">
@@ -48,6 +51,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ex4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
