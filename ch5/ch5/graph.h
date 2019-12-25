@@ -232,4 +232,5 @@ void travergraph(graph* g)
 		}
 	}
 }
+
 #endif // !GRAPH

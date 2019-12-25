@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="graph.h" />
+    <ClInclude Include="greedy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ex1.cpp">
