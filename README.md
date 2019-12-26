@@ -45,3 +45,4 @@
 
 ![第五章](https://github.com/furongw/DS/raw/master/image/图与贪心算法.jpg)
 
+![第六章](https://github.com/furongw/DS/raw/master/image/动态规划.jpg)

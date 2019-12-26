@@ -48,7 +48,7 @@ int lookupchain(int i,int j,int m[MATRIXNUM + 1][MATRIXNUM + 1], int s[MATRIXNUM
 	if (i == j) return 0;
 	//初始化分解乘法
 	int u = lookupchain(i+1 , j, m, s, p) + p[i-1 ] * p[i] * p[j];
-	s[i][j] = i;  
+	s[i][j] = i;
     //选择分解问题最佳的k
 	for (k = i + 1; k < j; k++)
 	{
@@ -80,6 +80,7 @@ int memorizedmatrixchain(int n, int m[MATRIXNUM+1][MATRIXNUM+1],int s[MATRIXNUM 
 	}
 	return lookupchain(1, n , m, s, p);
 }
+
 int max(int a, int b)
 {
 	return a > b ? a : b;
